@@ -105,7 +105,7 @@
         <!--The search filters which can be used on the discovery search page-->
         <property name="searchFilters">
             <list>
-                <ref bean="searchFilterTitle" />
+                <!-- <ref bean="searchFilterTitle" /> -->
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
@@ -120,7 +120,7 @@
                 <property name="defaultSortOrder" value="desc"/>
                 <property name="sortFields">
                     <list>
-                        <ref bean="sortTitle" />
+                        <!-- <ref bean="sortTitle" /> -->
                         <ref bean="sortDateIssued" />
                     </list>
                 </property>
@@ -149,10 +149,10 @@
             <bean class="org.dspace.discovery.configuration.DiscoveryHitHighlightingConfiguration">
                 <property name="metadataFields">
                     <list>
-                        <bean class="org.dspace.discovery.configuration.DiscoveryHitHighlightFieldConfiguration">
+                       <!-- <bean class="org.dspace.discovery.configuration.DiscoveryHitHighlightFieldConfiguration">
                             <property name="field" value="dc.title"/>
                             <property name="snippets" value="5"/>
-                        </bean>
+                        </bean> -->
                         <bean class="org.dspace.discovery.configuration.DiscoveryHitHighlightFieldConfiguration">
                             <property name="field" value="dc.contributor.author"/>
                             <property name="snippets" value="5"/>
@@ -177,7 +177,7 @@
                 the metadata fields below-->
                 <property name="similarityMetadataFields">
                     <list>
-                        <value>dc.title</value>
+                       <!-- <value>dc.title</value> -->
                         <value>dc.contributor.author</value>
                         <value>dc.creator</value>
                         <value>dc.subject</value>
@@ -205,6 +205,7 @@
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
+		
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -212,10 +213,11 @@
         <!--The search filters which can be used on the discovery search page (same as defaultConfiguration above)-->
         <property name="searchFilters">
             <list>
-                <ref bean="searchFilterTitle" />
+                <!-- <ref bean="searchFilterTitle" /> -->
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+		<!-- <ref bean="searchFilterCreator" /> -->
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
         </property>
@@ -227,7 +229,7 @@
                 <property name="defaultSortOrder" value="desc"/>
                 <property name="sortFields">
                     <list>
-                        <ref bean="sortTitle" />
+                       <!-- <ref bean="sortTitle" /> -->
                         <ref bean="sortDateIssued" />
                     </list>
                 </property>
@@ -246,10 +248,10 @@
             <bean class="org.dspace.discovery.configuration.DiscoveryHitHighlightingConfiguration">
                 <property name="metadataFields">
                     <list>
-                        <bean class="org.dspace.discovery.configuration.DiscoveryHitHighlightFieldConfiguration">
+                        <!-- <bean class="org.dspace.discovery.configuration.DiscoveryHitHighlightFieldConfiguration">
                             <property name="field" value="dc.title"/>
                             <property name="snippets" value="5"/>
-                        </bean>
+                        </bean> -->
                         <bean class="org.dspace.discovery.configuration.DiscoveryHitHighlightFieldConfiguration">
                             <property name="field" value="dc.contributor.author"/>
                             <property name="snippets" value="5"/>
@@ -364,14 +366,14 @@
     </bean>
     
     <!--Search filter configuration beans-->
-    <bean id="searchFilterTitle" class="org.dspace.discovery.configuration.DiscoverySearchFilter">
+    <!-- <bean id="searchFilterTitle" class="org.dspace.discovery.configuration.DiscoverySearchFilter">
         <property name="indexFieldName" value="title"/>
         <property name="metadataFields">
             <list>
                 <value>dc.title</value>
             </list>
         </property>
-    </bean>
+    </bean> -->
 
     <bean id="searchFilterAuthor" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
         <property name="indexFieldName" value="author"/>
@@ -410,7 +412,18 @@
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
-    
+    <!-- <bean id="searchFilterIssued" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="creator"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.creator</value>
+            </list>
+        </property>
+        <property name="type" value="c"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+-->
     <bean id="searchFilterContentInOriginalBundle" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
         <property name="indexFieldName" value="has_content_in_original_bundle"/>
         <property name="metadataFields">
@@ -423,9 +436,9 @@
     </bean>
 
     <!--Sort properties-->
-    <bean id="sortTitle" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+   <!-- <bean id="sortTitle" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
         <property name="metadataField" value="dc.title"/>
-    </bean>
+    </bean> -->
 
     <bean id="sortDateIssued" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
         <property name="metadataField" value="dc.date.issued"/>
